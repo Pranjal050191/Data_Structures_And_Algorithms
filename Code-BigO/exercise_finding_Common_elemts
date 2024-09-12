@@ -1,0 +1,14 @@
+const = ['nemo']
+everyone = ['sdsd','sdsd','nemo','sdfd','dfdfd x','etgvdb','xvdtra','xfe','cdfcz','sdfe','vdsfew','zxccsdx','zcsc','zccer']
+def findcommon(array1,array2):
+    s = 0
+    for item1 in array1:
+        for item2 in array2:
+            if (item1 == item2):
+                s =+1
+                break
+    if (s>0):
+        print('Found')
+    else:
+        print('Not Found')
+findcommon(const,everyone)
