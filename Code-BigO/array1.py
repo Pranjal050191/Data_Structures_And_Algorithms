@@ -1,0 +1,13 @@
+array1 = ['a','b','c','d']
+array1.append(['e','h']) #O(1)
+array1.extend(['f','g']) #O(1)
+print(array1)
+array1.pop()
+print(array1)
+array1.pop(0)
+print(array1)
+array1.insert(0,'pranjal') #O(n)
+print(array1)
+array1.insert(3,'good') #O(n)
+print(array1)
+print(f'{[[] == []]}')

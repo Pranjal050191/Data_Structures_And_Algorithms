@@ -1,14 +1,34 @@
-const = ['nemo']
-everyone = ['sdsd','sdsd','nemo','sdfd','dfdfd x','etgvdb','xvdtra','xfe','cdfcz','sdfe','vdsfew','zxccsdx','zcsc','zccer']
 def findcommon(array1,array2):
     s = 0
     for item1 in array1:
         for item2 in array2:
             if (item1 == item2):
-                s =+1
-                break
-    if (s>0):
-        print('Found')
+                return True
+    return False
+# print(f'Result is {findcommon(const,everyone)}')
+# Big O time complexity is O(a*b)
+#Space complexity is O(1), because we are not creating any new variables and using arrays.
+# Better approach with O(a+b) time complexity
+def findcommon2(array1=None,array2=None):
+    if array1 is None or array2 is None:
+        raise ValueError("Both array1 and array2 are required")
+    map = {}
+    for item1 in array1:
+        if (item1 not in map):
+           map[item1] = 'true'
+    print(map)
+    for item2 in array2:
+        print(item2)
+        if (item2 in map):
+            return True
     else:
-        print('Not Found')
-findcommon(const,everyone)
+        return False
+#The above method findcommon2 has space complexity of O(n)
+def findcommon3(array1=None,array2=None):
+    if array1 is None or array2 is None:
+        raise ValueError("Both array1 and array2 are required")
+    result = any(item in array2 for item in array1)
+    return result
+const = ['nemo',None]
+everyone = ['sdsd','sdsd',None,'sdfd','dfdfd x','etgvdb','xvdtra','xfe','cdfcz','sdfe','vdsfew','zxccsdx','zcsc','zccer']
+print(f'{findcommon3(everyone)}')
