@@ -32,9 +32,18 @@ class HashTable:
                     # print(self.data[i][j][0])
                       keysArray.append(self.data[i][j][0])
         return keysArray
+    def values(self):
+        keysArray = list()
+        for i in range(len(self.data)):
+            if(self.data[i]):
+                for j in range(len(self.data[i])):
+                    # print(self.data[i][j][0])
+                      keysArray.append(self.data[i][j][1])
+        return keysArray
 myHashTable = HashTable(2)
 myHashTable.set('grapes',1000)
 myHashTable.set('apples',54)
 myHashTable.set('oranges',2)
 print(f'{myHashTable.keys()}') 
+print(f'{myHashTable.values()}') 
 # myHashTable.keys()
