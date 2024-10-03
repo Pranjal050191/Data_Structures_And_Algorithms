@@ -111,7 +111,7 @@ class BinarySearchtree:
         if node is not None:
             self.in_order_traversal(node.left)
             print(node.value, end=' ')
-            self.in_order_traversal(node.right)
+            self.in_order_traversal(node.right)         
 
 
 tree = BinarySearchtree()
