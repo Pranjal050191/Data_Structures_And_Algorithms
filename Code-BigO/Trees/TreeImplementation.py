@@ -111,7 +111,65 @@ class BinarySearchtree:
         if node is not None:
             self.in_order_traversal(node.left)
             print(node.value, end=' ')
-            self.in_order_traversal(node.right)         
+            self.in_order_traversal(node.right)
+    def breadth_first_search(self):
+        if not self.root:
+            return []
+        queue = [self.root]
+        result = []
+        while queue:
+            current_node = queue.pop(0) # get the first node in the queue
+            result.append(current_node.value) # Process the node
+            #Add left and right children to the queue
+            if current_node.left:
+                queue.append(current_node.left)
+            if current_node.right:
+                queue.append(current_node.right)
+        return result
+    
+    # Recursive BFS implementation
+    def breadth_first_search_recursive(self, queue, result):
+        if len(queue) == 0:
+            return result  # Base case: If the queue is empty, return the result list
+
+        current_node = queue.pop(0)  # Process the first node in the queue
+        result.append(current_node.value)  # Add the current node's value to the result list
+
+        # Add the left and right children to the queue for the next level (if they exist)
+        if current_node.left:
+            queue.append(current_node.left)
+        if current_node.right:
+            queue.append(current_node.right)
+
+        # Recursive call with the updated queue and result list
+        return self.breadth_first_search_recursive(queue, result)
+
+    def bfs(self):
+        # Initiating the recursive BFS with the root node and an empty result list
+        if not self.root:
+            return []
+        return self.breadth_first_search_recursive([self.root], [])
+    
+    def in_order_traversal_pranjal(self, node):
+        if (node is not None):
+            # print(f'checking node {node.value}')
+            self.in_order_traversal_pranjal(node.left)
+            print (node.value)
+            self.in_order_traversal_pranjal(node.right)
+
+    def pre_order_traversal(self, node):
+        if (node is not None):
+            print (node.value,end= ' ')
+            self.pre_order_traversal(node.left)
+            self.pre_order_traversal(node.right)
+
+    def post_order_traversal(self, node):
+        if (node is not None):
+            # print(f'Pranjal {node.value}')
+            self.post_order_traversal(node.left)
+            # print(node.value,end = ' ')
+            self.post_order_traversal(node.right)
+            print(node.value,end = ' ')
 
 
 tree = BinarySearchtree()
@@ -129,14 +187,27 @@ tree.insert(26)
 tree.insert(171)
 tree.insert(173)
 tree.insert(5)
-print('Tree created at this stage is')
+
+print('Tree created at this stage is:')
 tree.in_order_traversal(tree.root)
-print(tree.lookup(170))
-print(tree.lookup(10))
-print(tree.lookup(171))
+print('\nBreadth First Search result:')
+print(tree.breadth_first_search())  # Output will show BFS traversal
+print('\nBreadth First Search result (Recursive):')
+print(tree.bfs())  # Output will show BFS traversal
+
+print('Pre order Depth First Search in tree')
+tree.pre_order_traversal(tree.root)
+
+print(' ')
+print('Post order Depth First Search in tree')
+tree.post_order_traversal(tree.root)
+print(' ')
+
 tree.removal(1)
 tree.removal(4)
 tree.removal(87)
 tree.removal(170)
 tree.removal(9)
 tree.in_order_traversal(tree.root)
+print('checking')
+tree.in_order_traversal_pranjal(None)
