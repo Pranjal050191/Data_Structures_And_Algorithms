@@ -23,7 +23,7 @@ class LinkedList:
         }
         self.tail = self.head
         self.length = 1
-    def append(self,value):
+    def append(self,value): 
         newNode = {
             'value': value
             ,'next': None
